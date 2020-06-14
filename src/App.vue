@@ -1,9 +1,24 @@
 <template>
   <div id="app">
-    <router-view/>
+    <template v-if="loading === true">
+      <span>Loading...</span>
+    </template>
+
+    <template v-else>
+      <router-view/>
+    </template>
   </div>
 </template>
 
-<style>
+<script>
+  import { computed } from '@vue/composition-api';
+  import { state } from '@/store/index';
 
-</style>
+  export default {
+    setup() {
+      return {
+        loading: computed(() => state.value.loading)
+      }
+    }
+  }
+</script>

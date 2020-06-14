@@ -17,13 +17,12 @@
 
     export default {
         setup() {
-            const { login, loading, email, password } = useAuth();
+            const { login, email, password } = useAuth();
 
             return {
                 login,
-                loading,
                 email,
-                password
+                password,
             };
         }
     }

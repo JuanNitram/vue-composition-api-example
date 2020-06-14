@@ -1,29 +1,29 @@
-import { ref } from '@vue/composition-api';
+import { ref, computed } from '@vue/composition-api';
+import { state, setLoading } from '@/store/index';
 
 const useAuth = () => {
-    let user = ref(null);
-    let loading = ref(false);
-    let error = ref(null);
     let email = ref('');
     let password = ref('');
 
     const login = () => {
-        loading = true;
+        console.log(`Login ${email.value} ${password.value}`);
+
+        setLoading(true);
         setTimeout(() => {
-            loading = false;
+            setLoading(false);
         }, 3000);
     }
 
     const logout = () => {
-        
+
     }
 
     return {
-        email,
-        password,
-        loading,
         login,
-        logout
+        logout,
+        loading: computed(() => state.value.loading),
+        email,
+        password
     }
 }
 
