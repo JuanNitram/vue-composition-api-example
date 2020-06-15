@@ -2,10 +2,10 @@
     <div class="form-wrapper">
         <form id="login-form" @submit.prevent="login">
             <label for="email">Email</label>
-            <input v-model="email" name="email" type="email"/>
+            <input v-model="email" name="email" type="email" required/>
 
             <label for="password">Password</label>
-            <input v-model="password" name="password" type="password"/>
+            <input v-model="password" name="password" type="password" required/>
 
             <button id="submit-form" type="submit">Submit</button>
         </form>

@@ -5,9 +5,16 @@ import { ref } from '@vue/composition-api';
 Vue.use(VueCompositionApi);
 
 const state =  ref({
-    loading: false
+    loading: false,
+    user: null
 });
 
-const setLoading = (loading) => { state.value.loading = loading }
+const setLoading = (loading) => { state.value.loading = loading };
 
-export { setLoading, state }
+const setUser = (user) => {console.log(state); state.value.user = user };
+
+export {
+    setLoading,
+    setUser,
+    state
+}
